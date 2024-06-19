@@ -1,0 +1,79 @@
+<!--templates/accounts/edit_profile.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'profiles/css/edit_profile.css' %}">
+    <script src="https://kit.fontawesome.com/76ccc5dbcf.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="site-title">Ocean Of Notions</h1>
+            <nav class="nav">
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Workshops</a>
+                <a href="#" class="nav-link">Contact</a>
+                <a href="#" class="nav-link login">Login</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="sidebar">
+        <h2 class="sidebar-title">Masterworks</h2>
+        <nav class="sidebar-nav">
+            <a href="#" class="sidebar-link active">
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fa-solid fa-receipt"></i>
+                Bookings
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fa-solid fa-bell"></i>
+                Notifications
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fa-solid fa-message"></i>
+                Messages
+            </a>
+        </nav>
+    </div>
+    <div class="main-content">
+        <h1>Edit profile</h1>
+        <div class="profile-section">
+            <div class="profile-header">
+                <img src="https://via.placeholder.com/64" alt="Profile Photo" class="profile-photo">
+                <div class="profile-info">
+                    <p class="profile-name">Helena Hills</p>
+                    <a href="#" class="change-photo-link">Change profile photo</a>
+                </div>
+            </div>
+            <div class="profile-form">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_school_details">School Details:</label>
+                        {{ form.school_details }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_students_info">My students are:</label>
+                        {{ form.students_info }}
+                    </div>
+                    <button type="submit" class="save-changes">Save changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
